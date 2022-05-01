@@ -37,7 +37,7 @@ def calculate_average_rating(data):
     for column in data:
         int_column = [int(num) for num in column]
         average = sum(int_column) / len(int_column)
-        average_rating.append(round(average))
+        average_rating.append(round(average, 2))
 
     return average_rating
 
@@ -62,10 +62,10 @@ def title_and_rating(title, rating):
     print('Below you shall find a list of available recipes, along with their user ratings.\n')
     
     for title, rating in zip(title, rating):
-        print(f'Recipe title: {title}.\nUser rating: {rating}\n')
+        print(f'Recipe title: {title}\nUser rating: {rating} / 5 stars\n')
 
-    print('Enter "1" if you would like to try a new recipe.')
-    print('Enter "2" if you would like to submit a rating for a recipe you have already tried.\n')
+    print('Enter [ 1 ] if you would like to try a new recipe.\n')
+    print('Enter [ 2 ] if you would like to submit a rating for a recipe you have already tried.\n')
 
 
 def rate_or_retrieve():
@@ -74,14 +74,27 @@ def rate_or_retrieve():
     They may either rate a recipe they have tried.
     Or try a new recipe.
     """
-    option = input("What'll it be?? 1 or 2:\n")
+    option = input("What'll it be?? [ 1 ] or [ 2 ]:\n")
     if option == '1':
         print("function not yet defined")
     elif option == '2':
-        print('no recipes to choose from')
+        submit_rating()
     else:
-        print('You must choose 1 or 2')
+        print('Invalid choice. You may only choose 1 or 2\n')
         return rate_or_retrieve()
+
+
+def submit_rating():
+    """
+    Function to display recipe names once more, and allow the user to select a title to rate.
+    """
+    print('\nYou may select one of the following recipes to rate:\n')
+    titles = recipe_titles()
+    index = 1            
+    for title in titles:   
+        print(index, title)
+        index += 1
+
 
 
 def main():
@@ -93,6 +106,7 @@ def main():
     recipe_name = recipe_titles()
     title_and_rating(recipe_name, average_rating)
     rate_or_retrieve()
+    # submit_rating()
     
     
 print("Welcome to Layer Cakes. Let's get started!\n")
