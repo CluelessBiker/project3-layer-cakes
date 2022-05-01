@@ -12,13 +12,6 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('layer-cakes')
 
-def recipes_ratings():
-    """
-    Displays the available recipes to choose from along with their user ratings,
-    """
-    print('Below you shall find a list of available recipes, along with their ratings.\n')
-    print('Please select from the available options to continue.\n')
-
 
 # This function is based on the 'Love Sandwiches' walk through.
 def obtain_user_ratings():
@@ -48,6 +41,7 @@ def calculate_average_rating(data):
 
     return average_rating
 
+
 def recipe_titles():
     """
     Function to return a lit of the available recipes titles to choose from.
@@ -58,19 +52,30 @@ def recipe_titles():
         title = recipes.col_values(ind)
         titles.append(title[0])
 
-    # return titles
-    print(titles)
+    return titles
+
+
+def title_and_rating(title, rating):
+    """
+    Return a list of Recipe titles & ratings together.
+    """
+    print('Below you shall find a list of available recipes, along with their user ratings.\n')
+    
+    for title, rating in zip(title, rating):
+        print(f'Recipe title: {title}.\nUser rating: {rating}\n')
 
 
 def main():
     """
     Call all program functions.
     """
-    recipes_ratings()
-    # obtain_user_ratings()
-
-
+    user_ratings = obtain_user_ratings()
+    average_rating = calculate_average_rating(user_ratings)
+    recipe_name = recipe_titles()
+    title_and_rating(recipe_name, average_rating)
+    
+    
 print("Welcome to Layer Cakes. Let's get started!\n")
 main()
-user_ratings = obtain_user_ratings()
-calculate_average_rating(user_ratings)
+
+
