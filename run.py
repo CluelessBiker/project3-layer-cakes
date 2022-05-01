@@ -1,6 +1,5 @@
 import gspread
 from google.oauth2.service_account import Credentials
-from pprint import pprint
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -35,14 +34,31 @@ def obtain_user_ratings():
     return columns
 
 
+# This function is from the 'Love Sandwiches' walk through.
+def calculate_average_rating(data):
+    """
+    Taking the information generated in the obtain_user_ratings function
+    And returning an average for all ratings inputted thus far.
+    """
+    average_rating = []
+    for column in data:
+        int_column = [int(num) for num in column]
+        average = sum(int_column) / len(int_column)
+        average_rating.append(round(average))
+
+    return average_rating
+
+
 def main():
     """
     Call all program functions.
     """
     recipes_ratings()
-    obtain_user_ratings()
+    # obtain_user_ratings()
 
 
 print("Welcome to Layer Cakes. Let's get started!\n")
 main()
+user_ratings = obtain_user_ratings()
+calculate_average_rating(user_ratings)
 
