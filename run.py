@@ -64,6 +64,25 @@ def title_and_rating(title, rating):
     for title, rating in zip(title, rating):
         print(f'Recipe title: {title}.\nUser rating: {rating}\n')
 
+    print('Enter "1" if you would like to try a new recipe.')
+    print('Enter "2" if you would like to submit a rating for a recipe you have already tried.\n')
+
+
+def rate_or_retrieve():
+    """
+    Function to determine which option the user would like to proceed with.
+    They may either rate a recipe they have tried.
+    Or try a new recipe.
+    """
+    option = input("What'll it be?? 1 or 2:\n")
+    if option == '1':
+        print("function not yet defined")
+    elif option == '2':
+        print('no recipes to choose from')
+    else:
+        print('You must choose 1 or 2')
+        return rate_or_retrieve()
+
 
 def main():
     """
@@ -73,6 +92,7 @@ def main():
     average_rating = calculate_average_rating(user_ratings)
     recipe_name = recipe_titles()
     title_and_rating(recipe_name, average_rating)
+    rate_or_retrieve()
     
     
 print("Welcome to Layer Cakes. Let's get started!\n")

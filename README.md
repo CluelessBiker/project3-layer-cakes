@@ -121,5 +121,7 @@ Also a huge thank you to my mentor, Martina T. who kept me calm when I was on th
 
 The start of the project is based on the 'Love Sandwiches' walk through, and the three functions to obtain the column data & generate an average have been used in this project. The have been marked accordingly within the run file.
 
+[StackOverflow](https://stackoverflow.com/questions/1663807/how-to-iterate-through-two-lists-in-parallel) reminded me how to iterate through two lists, and this was used to generate the recipe titles & user ratings together.
+
 
 ### Media
