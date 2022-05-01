@@ -64,8 +64,8 @@ def title_and_rating(title, rating):
     for title, rating in zip(title, rating):
         print(f'Recipe title: {title}\nUser rating: {rating} / 5 stars\n')
 
-    print('Enter [ 1 ] if you would like to try a new recipe.\n')
-    print('Enter [ 2 ] if you would like to submit a rating for a recipe you have already tried.\n')
+    print('Enter "1" if you would like to try a new recipe.')
+    print('Enter "2" if you would like to submit a rating for a recipe you have already tried.\n')
 
 
 def rate_or_retrieve():
@@ -74,7 +74,7 @@ def rate_or_retrieve():
     They may either rate a recipe they have tried.
     Or try a new recipe.
     """
-    option = input("What'll it be?? [ 1 ] or [ 2 ]:\n")
+    option = input("What'll it be?? 1 or 2:\n")
     if option == '1':
         print("function not yet defined")
     elif option == '2':
@@ -88,7 +88,10 @@ def submit_rating():
     """
     Function to display recipe names once more, and allow the user to select a title to rate.
     """
-    print('\nYou may select one of the following recipes to rate:\n')
+    print('\nSelect the recipe you would like to rate.')
+    print('Choose the recipe by the numberical value.')
+    print('Enter a rating between 1-5. Whole numbers ONLY.')
+    print('1 being the worst, 5 the best.\n')
 
     titles = recipe_titles()
     index = 1            
@@ -98,14 +101,38 @@ def submit_rating():
 
     selection = input('\nPlease select which recipe you would like to submit a rating for:\n')
     if selection == '1':
-        print("nope")
+        input_rating = user_ratings()
+        update_rating = SHEET.worksheet('ratings')
+        update_rating.append_column(1, input_rating)
     elif selection == '2':
-        print("not yet")
+        print('not yet')
     elif selection == '3':
-        print("try again")
+        print('try again')
     else:
         print('Invalid choice. You may only choose one of the available options.\n')
         return submit_rating()
+
+
+# Assistance came from my fellow student, Mats Simonsson, credited in README.
+def user_ratings():
+    """
+    Accepts the user input to determine if the rating is valid.
+    To be used within the 'submit_rating' function.
+    """
+    rating = []
+    while True:
+        try:
+            star_rating = int(input('Submit your rating: \n'))
+            break
+        except ValueError:
+            print('You must enter a number between 1 and 5')
+            continue
+    if star_rating <= 5:
+        rating.append(star_rating)
+        return rating
+    else:
+        print('You must enter a number between 1 and 5')
+        user_ratings()
 
 
 def main():
@@ -117,7 +144,6 @@ def main():
     recipe_name = recipe_titles()
     title_and_rating(recipe_name, average_rating)
     rate_or_retrieve()
-    # submit_rating()
     
     
 print("Welcome to Layer Cakes. Let's get started!\n")
