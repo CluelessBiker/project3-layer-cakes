@@ -7,12 +7,26 @@ SCOPE = [
     "https://www.googleapis.com/auth/drive"
     ]
 
-#variables that are to be unchanged should be in all caps
 CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('layer-cakes')
 
-sales = SHEET.worksheet('pumpkin')
-data = sales.get_all_values()
-print(data)
+def recipes_ratings():
+    """
+    Displays the available recipes to choose from along with their user ratings,
+    """
+    print('Below you shall find a list of available recipes, along with their ratings.\n')
+    print('Please select from the available options to continue.\n')
+
+
+def main():
+    """
+    Call all program functions.
+    """
+    print(recipes_ratings())
+
+
+print("Welcome to Layer Cakes. Let's get started!\n")
+main()
+
