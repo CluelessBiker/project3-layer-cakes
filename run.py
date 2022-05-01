@@ -89,12 +89,23 @@ def submit_rating():
     Function to display recipe names once more, and allow the user to select a title to rate.
     """
     print('\nYou may select one of the following recipes to rate:\n')
+
     titles = recipe_titles()
     index = 1            
     for title in titles:   
         print(index, title)
         index += 1
 
+    selection = input('\nPlease select which recipe you would like to submit a rating for:\n')
+    if selection == '1':
+        print("nope")
+    elif selection == '2':
+        print("not yet")
+    elif selection == '3':
+        print("try again")
+    else:
+        print('Invalid choice. You may only choose one of the available options.\n')
+        return submit_rating()
 
 
 def main():
