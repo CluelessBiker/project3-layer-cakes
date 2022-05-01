@@ -28,6 +28,20 @@ def obtain_user_ratings():
 
 
 # This function is from the 'Love Sandwiches' walk through.
+# def calculate_average_rating(data):
+#     """
+#     Taking the information generated in the obtain_user_ratings function
+#     And returning an average for all ratings inputted thus far.
+#     """
+#     average_rating = []
+#     for column in data:
+#         int_column = [int(num) for num in column]
+#         average = sum(int_column) / len(int_column)
+#         average_rating.append(round(average, 2))
+
+#     return average_rating
+
+# This code was recalculated with the help of a friend, Nick Ludlam.
 def calculate_average_rating(data):
     """
     Taking the information generated in the obtain_user_ratings function
@@ -35,8 +49,16 @@ def calculate_average_rating(data):
     """
     average_rating = []
     for column in data:
-        int_column = [int(num) for num in column]
-        average = sum(int_column) / len(int_column)
+        
+        rating_count = 0
+        rating_total = 0
+
+        for num in column:
+            if num:
+                rating_count += 1
+                rating_total += int(num)
+
+        average = rating_total / rating_count
         average_rating.append(round(average, 2))
 
     return average_rating
@@ -103,7 +125,8 @@ def submit_rating():
     if selection == '1':
         input_rating = user_ratings()
         update_rating = SHEET.worksheet('ratings')
-        update_rating.append_column(1, input_rating)
+        update_rating.append_row(input_rating)
+
     elif selection == '2':
         print('not yet')
     elif selection == '3':

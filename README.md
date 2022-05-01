@@ -1,6 +1,6 @@
 # Layer Cakes
 
-![Site view across devices](assets/images/
+![Site view across devices](assets/images/)
 
 The Layer Cakes site is live, the links can be found [HERE]()
 
@@ -127,6 +127,8 @@ The start of the project is based on the 'Love Sandwiches' walk through, and the
 [StackOverflow](https://stackoverflow.com/questions/522563/accessing-the-index-in-for-loops) provided the reminder for how to index my 'for loop'.
 
 [Mats Simonsson](https://github.com/Pelikantapeten) Helped me to create my Try/Except statement, and walked me through their own code when I was stuck.
+
+Nick Ludlam, my friend, assisted me by re-writing the code for the averages function, as it needed to account for empty cells.
 
 
 ### Media
