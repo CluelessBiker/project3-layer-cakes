@@ -48,6 +48,19 @@ def calculate_average_rating(data):
 
     return average_rating
 
+def recipe_titles():
+    """
+    Function to return a lit of the available recipes titles to choose from.
+    """
+    recipes = SHEET.worksheet('ratings')
+    titles = []
+    for ind in range(1, 4):
+        title = recipes.col_values(ind)
+        titles.append(title[0])
+
+    # return titles
+    print(titles)
+
 
 def main():
     """
@@ -61,4 +74,3 @@ print("Welcome to Layer Cakes. Let's get started!\n")
 main()
 user_ratings = obtain_user_ratings()
 calculate_average_rating(user_ratings)
-
