@@ -1,5 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
+from pprint import pprint
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -20,11 +21,26 @@ def recipes_ratings():
     print('Please select from the available options to continue.\n')
 
 
+# This function is based on the 'Love Sandwiches' walk through.
+def obtain_user_ratings():
+    """
+    Obtain all user ratings, and return data as a list of lists.
+    """
+    ratings = SHEET.worksheet('ratings')
+    columns = []
+    for ind in range(1, 4):
+        column = ratings.col_values(ind)
+        columns.append(column[1:])
+
+    return columns
+
+
 def main():
     """
     Call all program functions.
     """
-    print(recipes_ratings())
+    recipes_ratings()
+    obtain_user_ratings()
 
 
 print("Welcome to Layer Cakes. Let's get started!\n")

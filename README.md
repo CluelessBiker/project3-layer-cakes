@@ -119,5 +119,7 @@ Support was provided by my fellow student & friend [Mats](https://github.com/Pel
 
 Also a huge thank you to my mentor, Martina T. who kept me calm when I was on the verge of panic. As well as taught me how to break my thinking down into bite-sized chunks that were easier to manage, instead of trying to figure it all out in one go.
 
+The start of the project is based on the 'Love Sandwiches' walk through, and the functions to obtain the column data & generate an average have been used in this project.
+
 
 ### Media
