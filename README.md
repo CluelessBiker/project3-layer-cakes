@@ -74,6 +74,12 @@ The Layer Cakes site is live, the links can be found [HERE]()
 ## Testing
 In trying to create a function to allow the user to select from one of the recipe titles to rate, I was unable to pass in a parameter in order to cycle through the list already generated in a previous function. Upon removing the parameter, I saw the print statement was being logged to the console twice. I then realised that this was because the function was being called twice. Once through the user input funtion prompting the user to make a choice, and the second time from the main function. By removing the "submit_rating" function from the main function, I resolved my error message.
 
+A new issue arose when it came to assing those ratings into the appropriate column for the recipe. As I could not discover the method to append a new cell to the end of a single column, I was instead guided by my friend Nick to stead creat an array, so that I could just append an entirely new row to all the columns, inserting empty strings into the columns that did not need to be updated. 
+
+This presented two new issues. One, it affected my ratings calculations. This issue was resolved when Nick showed me how to change the calculations so that empty cells were not factored in. 
+
+And issue two arose when I tried to append the new array to a new row, an error message kept arising. Upon further inspection, I realised the error as that the inputed ratings were being generated into an empty array themselves, and thus I had an array, nested within an array, which led to the errors I was seeing. I resolved this by calling upon a single item within the array.
+
 
 ### Validator Testing
 - The code has also been tested by using [PEP8 Online](http://pep8online.com/).
@@ -128,7 +134,7 @@ The start of the project is based on the 'Love Sandwiches' walk through, and the
 
 [Mats Simonsson](https://github.com/Pelikantapeten) Helped me to create my Try/Except statement, and walked me through their own code when I was stuck.
 
-Nick Ludlam, my friend, assisted me by re-writing the code for the averages function, as it needed to account for empty cells.
+Nick Ludlam, my friend, assisted me by re-writing the code for the averages function, as it needed to account for empty cells being inserted in the submit rating function. They have been credited accordingly above the function as well.
 
 
 ### Media

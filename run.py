@@ -27,21 +27,7 @@ def obtain_user_ratings():
     return columns
 
 
-# This function is from the 'Love Sandwiches' walk through.
-# def calculate_average_rating(data):
-#     """
-#     Taking the information generated in the obtain_user_ratings function
-#     And returning an average for all ratings inputted thus far.
-#     """
-#     average_rating = []
-#     for column in data:
-#         int_column = [int(num) for num in column]
-#         average = sum(int_column) / len(int_column)
-#         average_rating.append(round(average, 2))
-
-#     return average_rating
-
-# This code was recalculated with the help of a friend, Nick Ludlam.
+# This code was rewritten with the help of a friend, Nick Ludlam.
 def calculate_average_rating(data):
     """
     Taking the information generated in the obtain_user_ratings function
@@ -49,7 +35,6 @@ def calculate_average_rating(data):
     """
     average_rating = []
     for column in data:
-        
         rating_count = 0
         rating_total = 0
 
@@ -122,15 +107,14 @@ def submit_rating():
         index += 1
 
     selection = input('\nPlease select which recipe you would like to submit a rating for:\n')
+    input_rating = user_ratings()
+    update_rating = SHEET.worksheet('ratings')
     if selection == '1':
-        input_rating = user_ratings()
-        update_rating = SHEET.worksheet('ratings')
-        update_rating.append_row(input_rating)
-
+        update_rating.append_row([input_rating[0], '', ''])
     elif selection == '2':
-        print('not yet')
+        update_rating.append_row(['', input_rating[0], ''])
     elif selection == '3':
-        print('try again')
+        update_rating.append_row(['', '', input_rating[0]])
     else:
         print('Invalid choice. You may only choose one of the available options.\n')
         return submit_rating()
@@ -156,6 +140,8 @@ def user_ratings():
     else:
         print('You must enter a number between 1 and 5')
         user_ratings()
+    
+    return rating
 
 
 def main():
@@ -171,5 +157,7 @@ def main():
     
 print("Welcome to Layer Cakes. Let's get started!\n")
 main()
+
+
 
 
