@@ -1,5 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
+import sys
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -119,6 +120,9 @@ def submit_rating():
         print('Invalid choice. You may only choose one of the available options.\n')
         return submit_rating()
 
+    print('\nThank you for your submission!')
+    quit_repeat()
+
 
 # Assistance came from my fellow student, Mats Simonsson, credited in README.
 def user_ratings():
@@ -144,6 +148,24 @@ def user_ratings():
     return rating
 
 
+def quit_repeat():
+    """
+    Function to allow the user to either quit the program,
+    or restart it
+    """
+    print('\nIf you would like to start again, press "R" to restart the application.')
+    print('\nOr press "Q" to quit the application.\n')
+    option = input("Enter your selection:\n")
+    if option == 'R':
+        main()
+    elif option == 'Q':
+        sys.exit('Thank you & Good bye!')
+        # print('testing testing')
+    else:
+        print('Invalid choice. You may only choose R or Q\n')
+        return quit_repeat()
+
+
 def main():
     """
     Call all program functions.
@@ -153,6 +175,7 @@ def main():
     recipe_name = recipe_titles()
     title_and_rating(recipe_name, average_rating)
     rate_or_retrieve()
+
     
     
 print("Welcome to Layer Cakes. Let's get started!\n")

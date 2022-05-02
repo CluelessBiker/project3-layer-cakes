@@ -136,5 +136,9 @@ The start of the project is based on the 'Love Sandwiches' walk through, and the
 
 Nick Ludlam, my friend, assisted me by re-writing the code for the averages function, as it needed to account for empty cells being inserted in the submit rating function. They have been credited accordingly above the function as well.
 
+The code for how to exit the application came from [Geeks for Geeks](https://www.geeksforgeeks.org/python-exit-commands-quit-exit-sys-exit-and-os-_exit/).
+
+[Pretty Printed](https://www.youtube.com/watch?v=bu5wXjz2KvU) provided a great tutorial on manipulating google spreadsheets.
+
 
 ### Media
