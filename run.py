@@ -1,6 +1,8 @@
+import sys
 import gspread
 from google.oauth2.service_account import Credentials
-import sys
+import itertools 
+
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -72,7 +74,7 @@ def title_and_rating(title, rating):
     for title, rating in zip(title, rating):
         print(f'Recipe title: {title}\nUser rating: {rating} / 5 stars\n')
 
-    print('Enter "1" if you would like to try a new recipe.')
+    print('Enter "1" if you would like  to try a new recipe.')
     print('Enter "2" if you would like to submit a rating for a recipe you have already tried.\n')
 
 
@@ -166,21 +168,46 @@ def quit_repeat():
         return quit_repeat()
 
 
-def main():
-    """
-    Call all program functions.
-    """
-    user_ratings = obtain_user_ratings()
-    average_rating = calculate_average_rating(user_ratings)
-    recipe_name = recipe_titles()
-    title_and_rating(recipe_name, average_rating)
-    rate_or_retrieve()
+# def main():
+#     """
+#     Call all program functions.
+#     """
+#     user_ratings = obtain_user_ratings()
+#     average_rating = calculate_average_rating(user_ratings)
+#     recipe_name = recipe_titles()
+#     title_and_rating(recipe_name, average_rating)
+#     rate_or_retrieve()
 
     
     
-print("Welcome to Layer Cakes. Let's get started!\n")
-main()
+# print("Welcome to Layer Cakes. Let's get started!\n")
+# main()
+
+def ingredients_list():
+    """
+    Function to return an indredients list.
+    """
+    ingredients = SHEET.worksheet('pumpkin')
+
+    all_rows = []
+    for ind in range(1,4):
+        all = ingredients.col_values(ind)
+        all_rows.append(all[1:])
+
+    ingredient = all_rows[0]
+    quantity = all_rows[1]
+    unit = all_rows[2]
+
+    print('Ingredients list:\n')
+    for (ingredient, quantity, unit) in zip(ingredient, quantity, unit):
+        print(f'{ingredient} - {quantity}{unit}')
 
 
+    
+
+
+
+
+ingredients_list()
 
 
