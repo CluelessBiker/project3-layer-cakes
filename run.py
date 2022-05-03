@@ -100,6 +100,33 @@ def rate_or_retrieve():
         return rate_or_retrieve()
 
 
+def ingredients_list(recipe):
+    """
+    Function to return an indredients list & full recipe instructions.
+    """
+    ingredients = SHEET.worksheet(recipe)
+
+    all_rows = []
+    for ind in range(1,5):
+        all = ingredients.col_values(ind)
+        all_rows.append(all[1:])
+
+    ingredient = all_rows[0]
+    quantity = all_rows[1]
+    unit = all_rows[2]
+    instructions = all_rows[3]
+
+    print('\nIngredients list:\n')
+    for (ingredient, quantity, unit) in zip(ingredient, quantity, unit):
+        print(f'{ingredient} - {quantity}{unit}')
+
+    print('\nInstructions:\n')
+    for instruction in instructions:
+        print(instruction)
+# ingredients_list('pumpkin')
+# ingredients_list('pistachio')
+
+
 def submit_rating():
     """
     Function to display recipe names once more, and allow the user to select a title to rate.
@@ -190,33 +217,7 @@ def quit_repeat():
 # print("Welcome to Layer Cakes. Let's get started!\n")
 # main()
 
-def ingredients_list(recipe):
-    """
-    Function to return an indredients list.
-    """
-    ingredients = SHEET.worksheet(recipe)
 
-    all_rows = []
-    for ind in range(1,5):
-        all = ingredients.col_values(ind)
-        all_rows.append(all[1:])
-
-    ingredient = all_rows[0]
-    quantity = all_rows[1]
-    unit = all_rows[2]
-    instructions = all_rows[3]
-
-    print('\nIngredients list:\n')
-    for (ingredient, quantity, unit) in zip(ingredient, quantity, unit):
-        print(f'{ingredient} - {quantity}{unit}')
-
-    print('\nInstructions:\n')
-    for instruction in instructions:
-        print(instruction)
-
-
-# ingredients_list('pumpkin')
-# ingredients_list('pistachio')
 
 
 
