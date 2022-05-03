@@ -62,7 +62,13 @@ def recipe_titles():
         title = recipes.col_values(ind)
         titles.append(title[0])
 
-    return titles
+    # return titles
+
+        # titles = recipe_titles()
+    index = 1            
+    for title in titles:   
+        print(index, title)
+        index += 1
 
 
 def title_and_rating(title, rating):
@@ -103,11 +109,12 @@ def submit_rating():
     print('Enter a rating between 1-5. Whole numbers ONLY.')
     print('1 being the worst, 5 the best.\n')
 
-    titles = recipe_titles()
-    index = 1            
-    for title in titles:   
-        print(index, title)
-        index += 1
+    # titles = recipe_titles()
+    # index = 1            
+    # for title in titles:   
+    #     print(index, title)
+    #     index += 1
+    print(recipe_titles())
 
     selection = input('\nPlease select which recipe you would like to submit a rating for:\n')
     input_rating = user_ratings()
@@ -183,12 +190,11 @@ def quit_repeat():
 # print("Welcome to Layer Cakes. Let's get started!\n")
 # main()
 
-def ingredients_list(placeholder):
+def ingredients_list(recipe):
     """
     Function to return an indredients list.
     """
-    # ingredients = SHEET.worksheet('pumpkin')
-    ingredients = SHEET.worksheet(placeholder)
+    ingredients = SHEET.worksheet(recipe)
 
     all_rows = []
     for ind in range(1,5):
@@ -209,7 +215,8 @@ def ingredients_list(placeholder):
         print(instruction)
 
 
-ingredients_list('pumpkin')
-ingredients_list('pistachio')
+# ingredients_list('pumpkin')
+# ingredients_list('pistachio')
+
 
 
