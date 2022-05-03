@@ -140,5 +140,7 @@ The code for how to exit the application came from [Geeks for Geeks](https://www
 
 [Pretty Printed](https://www.youtube.com/watch?v=bu5wXjz2KvU) provided a great tutorial on manipulating google spreadsheets.
 
+The information on how to iterate through three lists simultaneously came from (Geeks for Geeks)[https://www.geeksforgeeks.org/python-iterate-multiple-lists-simultaneously/].
+
 
 ### Media

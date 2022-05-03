@@ -183,31 +183,33 @@ def quit_repeat():
 # print("Welcome to Layer Cakes. Let's get started!\n")
 # main()
 
-def ingredients_list():
+def ingredients_list(placeholder):
     """
     Function to return an indredients list.
     """
-    ingredients = SHEET.worksheet('pumpkin')
+    # ingredients = SHEET.worksheet('pumpkin')
+    ingredients = SHEET.worksheet(placeholder)
 
     all_rows = []
-    for ind in range(1,4):
+    for ind in range(1,5):
         all = ingredients.col_values(ind)
         all_rows.append(all[1:])
 
     ingredient = all_rows[0]
     quantity = all_rows[1]
     unit = all_rows[2]
+    instructions = all_rows[3]
 
-    print('Ingredients list:\n')
+    print('\nIngredients list:\n')
     for (ingredient, quantity, unit) in zip(ingredient, quantity, unit):
         print(f'{ingredient} - {quantity}{unit}')
 
+    print('\nInstructions:\n')
+    for instruction in instructions:
+        print(instruction)
 
-    
 
-
-
-
-ingredients_list()
+ingredients_list('pumpkin')
+ingredients_list('pistachio')
 
 
