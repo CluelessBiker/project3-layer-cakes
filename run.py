@@ -123,7 +123,7 @@ def retrieve_recipe():
         ingredients_list('pumpkin')
     else:
         print('Invalid choice. You may only choose one of the available options.\n')
-        return submit_rating()
+        return retrieve_recipe()
 
     print('\nHappy baking!')
     quit_repeat()
@@ -172,13 +172,18 @@ def submit_rating():
     # print(recipe_titles())
 
     selection = input('\nPlease select which recipe you would like to submit a rating for:\n')
-    input_rating = user_ratings()
-    update_rating = SHEET.worksheet('ratings')
+    
     if selection == '1':
+        input_rating = user_ratings()
+        update_rating = SHEET.worksheet('ratings')
         update_rating.append_row([input_rating[0], '', ''])
     elif selection == '2':
+        input_rating = user_ratings()
+        update_rating = SHEET.worksheet('ratings')
         update_rating.append_row(['', input_rating[0], ''])
     elif selection == '3':
+        input_rating = user_ratings()
+        update_rating = SHEET.worksheet('ratings')
         update_rating.append_row(['', '', input_rating[0]])
     else:
         print('Invalid choice. You may only choose one of the available options.\n')
@@ -223,7 +228,7 @@ def quit_repeat():
     if option == 'R':
         main()
     elif option == 'Q':
-        sys.exit('Thank you & Good bye!')
+        sys.exit('\nThank you & Good bye!')
         # print('testing testing')
     else:
         print('Invalid choice. You may only choose R or Q\n')
@@ -242,7 +247,7 @@ def main():
 
     
     
-print("Welcome to Layer Cakes. Let's get started!\n")
+print("\nWelcome to Layer Cakes. Let's get started!\n")
 main()
 
 
