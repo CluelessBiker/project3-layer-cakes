@@ -62,13 +62,11 @@ def recipe_titles():
         title = recipes.col_values(ind)
         titles.append(title[0])
 
-    # return titles
-
-        # titles = recipe_titles()
-    index = 1            
-    for title in titles:   
-        print(index, title)
-        index += 1
+    return titles
+    # index = 1            
+    # for title in titles:   
+    #     print(index, title)
+    #     index += 1
 
 
 def title_and_rating(title, rating):
@@ -92,12 +90,43 @@ def rate_or_retrieve():
     """
     option = input("What'll it be?? 1 or 2:\n")
     if option == '1':
-        print("function not yet defined")
+        retrieve_recipe()
     elif option == '2':
         submit_rating()
     else:
         print('Invalid choice. You may only choose 1 or 2\n')
         return rate_or_retrieve()
+
+
+def retrieve_recipe():
+    """
+    Function to display recipe names once more,
+    and allow the user to select a recipe to retrieve.
+    """
+    print('\nSelect the recipe you would like to retrieve.')
+    print('Choose the recipe by the numberical value.')
+
+    titles = recipe_titles()
+    index = 1            
+    for title in titles:   
+        print(index, title)
+        index += 1
+    # print(recipe_titles())
+
+    selection = input('\nPlease select which recipe you would like to retrieve:\n')
+
+    if selection == '1':
+        ingredients_list('chocolate quinoa')
+    elif selection == '2':
+        ingredients_list('pistachio')
+    elif selection == '3':
+        ingredients_list('pumpkin')
+    else:
+        print('Invalid choice. You may only choose one of the available options.\n')
+        return submit_rating()
+
+    print('\nHappy baking!')
+    quit_repeat()
 
 
 def ingredients_list(recipe):
@@ -123,8 +152,7 @@ def ingredients_list(recipe):
     print('\nInstructions:\n')
     for instruction in instructions:
         print(instruction)
-# ingredients_list('pumpkin')
-# ingredients_list('pistachio')
+
 
 
 def submit_rating():
@@ -136,12 +164,12 @@ def submit_rating():
     print('Enter a rating between 1-5. Whole numbers ONLY.')
     print('1 being the worst, 5 the best.\n')
 
-    # titles = recipe_titles()
-    # index = 1            
-    # for title in titles:   
-    #     print(index, title)
-    #     index += 1
-    print(recipe_titles())
+    titles = recipe_titles()
+    index = 1            
+    for title in titles:   
+        print(index, title)
+        index += 1
+    # print(recipe_titles())
 
     selection = input('\nPlease select which recipe you would like to submit a rating for:\n')
     input_rating = user_ratings()
@@ -202,20 +230,21 @@ def quit_repeat():
         return quit_repeat()
 
 
-# def main():
-#     """
-#     Call all program functions.
-#     """
-#     user_ratings = obtain_user_ratings()
-#     average_rating = calculate_average_rating(user_ratings)
-#     recipe_name = recipe_titles()
-#     title_and_rating(recipe_name, average_rating)
-#     rate_or_retrieve()
+def main():
+    """
+    Call all program functions.
+    """
+    user_ratings = obtain_user_ratings()
+    average_rating = calculate_average_rating(user_ratings)
+    recipe_name = recipe_titles()
+    title_and_rating(recipe_name, average_rating)
+    rate_or_retrieve()
 
     
     
-# print("Welcome to Layer Cakes. Let's get started!\n")
-# main()
+print("Welcome to Layer Cakes. Let's get started!\n")
+main()
+
 
 
 
