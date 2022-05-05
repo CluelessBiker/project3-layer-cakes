@@ -225,7 +225,6 @@ def quit_repeat():
     print('\nIf you would like to start again, press "R" to restart the application.')
     print('\nOr press "Q" to quit the application.\n')
     option = input("Enter your selection:\n").upper()
-    # option_cap = option.upper()
     if option == 'R':
         main()
     elif option == 'Q':
