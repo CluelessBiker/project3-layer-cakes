@@ -242,6 +242,6 @@ def main():
     
     
 print(colored(("\n Welcome to Layer Cakes. Let's get started!\n"), 'magenta'))
-# main()
+main()
 
-print('hello' (colored('world'), 'magenta'))
+
