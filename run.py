@@ -48,6 +48,17 @@ def recipe_titles():
     return titles
 
 
+def index_titles():
+    """
+    Function to index available recipe titles
+    """
+    titles = recipe_titles()
+    index = 1
+    for title in titles:
+        print(colored((f' {index}. {title}'), 'cyan'))
+        index += 1
+
+
 # This function is based on the 'Love Sandwiches' walk through.
 def obtain_user_ratings():
     """
@@ -109,11 +120,7 @@ def retrieve_recipe():
     print('\n Select the recipe you would like to retrieve.')
     print(' Choose the recipe by the numberical value.\n')
 
-    titles = recipe_titles()
-    index = 1
-    for title in titles:
-        print(colored((f' {index}. {title}'), 'cyan'))
-        index += 1
+    index_titles()
 
     selection = input('\n Please select a recipe to retrieve:\n ')
 
@@ -168,11 +175,7 @@ def submit_rating():
     print(' Enter a rating between 1-5. Whole numbers ONLY.')
     print(' 1 being the worst, 5 the best.\n')
 
-    titles = recipe_titles()
-    index = 1
-    for title in titles:
-        print(colored((f' {index}. {title}'), 'cyan'))
-        index += 1
+    index_titles()
 
     selection = input('\n Please select a recipe to submit a rating for:\n ')
     # input_rating = user_ratings()
@@ -253,3 +256,4 @@ def main():
 
 print(colored(("\n Welcome to Layer Cakes. Let's get started!\n"), 'magenta'))
 main()
+
