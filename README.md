@@ -142,5 +142,7 @@ The code for how to exit the application came from [Geeks for Geeks](https://www
 
 The information on how to iterate through three lists simultaneously came from (Geeks for Geeks)[https://www.geeksforgeeks.org/python-iterate-multiple-lists-simultaneously/].
 
+Instructions on adding (Termcolor)[https://pypi.org/project/termcolor/] came from (StackOverflow)[https://stackoverflow.com/questions/51530437/no-module-named-termcolor].
+
 
 ### Media

@@ -2,7 +2,7 @@ import sys
 import gspread
 from google.oauth2.service_account import Credentials
 import itertools 
-
+from termcolor import colored
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -63,20 +63,17 @@ def recipe_titles():
         titles.append(title[0])
 
     return titles
-    # index = 1            
-    # for title in titles:   
-    #     print(index, title)
-    #     index += 1
 
 
 def title_and_rating(title, rating):
     """
     Return a list of Recipe titles & ratings together.
     """
-    print(' Below you shall find a list of available recipes, along with their user ratings.\n')
+    print(' Below you shall find a list of available recipes,')
+    print(' along with their user ratings.\n')
     
     for title, rating in zip(title, rating):
-        print(f' Recipe title: {title}\nUser rating: {rating} / 5 stars\n')
+        print(colored((f' Recipe title: {title}\n User rating: {rating} / 5 stars\n'), 'cyan'))
 
     print(' Enter "1" if you would like  to try a new recipe.')
     print(' Enter "2" if you would like to submit a rating for a recipe you have')
@@ -95,7 +92,7 @@ def rate_or_retrieve():
     elif option == '2':
         submit_rating()
     else:
-        print(' Invalid choice. You may only choose 1 or 2\n')
+        print(colored((' Invalid choice. You may only choose 1 or 2\n'), 'red'))
         return rate_or_retrieve()
 
 
@@ -105,16 +102,15 @@ def retrieve_recipe():
     and allow the user to select a recipe to retrieve.
     """
     print('\n Select the recipe you would like to retrieve.')
-    print(' Choose the recipe by the numberical value.')
+    print(' Choose the recipe by the numberical value.\n')
 
     titles = recipe_titles()
     index = 1            
     for title in titles:   
-        print(index, title)
+        print(colored((f' {index}. {title}'), 'cyan'))
         index += 1
-    # print(recipe_titles())
 
-    selection = input('\n Please select which recipe you would like to retrieve:\n')
+    selection = input('\n Please select which recipe you would like to retrieve:\n ')
 
     if selection == '1':
         ingredients_list('chocolate quinoa')
@@ -123,10 +119,10 @@ def retrieve_recipe():
     elif selection == '3':
         ingredients_list('pumpkin')
     else:
-        print(' Invalid choice. You may only choose one of the available options.\n')
+        print(colored((' Invalid choice. You may only choose one of the available options.\n'), 'red'))
         return retrieve_recipe()
 
-    print('\n Happy baking!')
+    print(colored(('\n Happy baking!'), 'magenta'))
     quit_repeat()
 
 
@@ -146,14 +142,13 @@ def ingredients_list(recipe):
     unit = all_rows[2]
     instructions = all_rows[3]
 
-    print('\n Ingredients list:\n')
+    print(colored(('\n Ingredients list:\n'), 'magenta'))
     for (ingredient, quantity, unit) in zip(ingredient, quantity, unit):
-        print(f' {ingredient} - {quantity}{unit}')
+        print(colored((f' {ingredient} - {quantity}{unit}'), 'cyan'))
 
-    print('\n Instructions:\n')
+    print(colored(('\n Instructions:\n'), 'magenta'))
     for instruction in instructions:
-        print(instruction)
-
+        print(colored((instruction), 'cyan'))
 
 
 def submit_rating():
@@ -168,9 +163,8 @@ def submit_rating():
     titles = recipe_titles()
     index = 1            
     for title in titles:   
-        print(index, title)
+        print(colored((f' {index}. {title}'), 'cyan'))
         index += 1
-    # print(recipe_titles())
 
     selection = input('\n Please select which recipe you would like to submit a rating for:\n ')
     
@@ -187,7 +181,7 @@ def submit_rating():
         update_rating = SHEET.worksheet('ratings')
         update_rating.append_row(['', '', input_rating[0]])
     else:
-        print(' Invalid choice. You may only choose one of the available options.\n')
+        print(colored((' Invalid choice. You may only choose one of the available options.\n'), 'red'))
         return submit_rating()
 
     print('\n Thank you for your submission!')
@@ -206,13 +200,13 @@ def user_ratings():
             star_rating = int(input(' Submit your rating: \n '))
             break
         except ValueError:
-            print(' You must enter a number between 1 and 5')
+            print(colored((' You must enter a number between 1 and 5'), 'red'))
             continue
     if star_rating <= 5:
         rating.append(star_rating)
         return rating
     else:
-        print(' You must enter a number between 1 and 5')
+        print(colored((' You must enter a number between 1 and 5'), 'red'))
         user_ratings()
     
     return rating
@@ -230,9 +224,8 @@ def quit_repeat():
         main()
     elif option == 'Q':
         sys.exit('\n Thank you & Good bye!')
-        # print('testing testing')
     else:
-        print(' Invalid choice. You may only choose R or Q\n')
+        print(colored((' Invalid choice. You may only choose R or Q\n'), 'red'))
         return quit_repeat()
 
 
@@ -248,11 +241,7 @@ def main():
 
     
     
-print("\n Welcome to Layer Cakes. Let's get started!\n")
-main()
+print(colored(("\n Welcome to Layer Cakes. Let's get started!\n"), 'magenta'))
+# main()
 
-
-
-
-
-
+print('hello' (colored('world'), 'magenta'))
