@@ -170,18 +170,19 @@ def submit_rating():
         index += 1
 
     selection = input('\n Please select which recipe you would like to submit a rating for:\n ')
-
+    # input_rating = user_ratings()
+    update_rating = SHEET.worksheet('ratings')
     if selection == '1':
         input_rating = user_ratings()
-        update_rating = SHEET.worksheet('ratings')
+        # update_rating = SHEET.worksheet('ratings')
         update_rating.append_row([input_rating[0], '', ''])
     elif selection == '2':
         input_rating = user_ratings()
-        update_rating = SHEET.worksheet('ratings')
+        # update_rating = SHEET.worksheet('ratings')
         update_rating.append_row(['', input_rating[0], ''])
     elif selection == '3':
         input_rating = user_ratings()
-        update_rating = SHEET.worksheet('ratings')
+        # update_rating = SHEET.worksheet('ratings')
         update_rating.append_row(['', '', input_rating[0]])
     else:
         print(colored((' Invalid choice. You may only choose one of the available options.\n'), 'red'))
