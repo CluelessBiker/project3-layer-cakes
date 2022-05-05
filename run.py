@@ -73,13 +73,14 @@ def title_and_rating(title, rating):
     """
     Return a list of Recipe titles & ratings together.
     """
-    print('Below you shall find a list of available recipes, along with their user ratings.\n')
+    print(' Below you shall find a list of available recipes, along with their user ratings.\n')
     
     for title, rating in zip(title, rating):
-        print(f'Recipe title: {title}\nUser rating: {rating} / 5 stars\n')
+        print(f' Recipe title: {title}\nUser rating: {rating} / 5 stars\n')
 
-    print('Enter "1" if you would like  to try a new recipe.')
-    print('Enter "2" if you would like to submit a rating for a recipe you have already tried.\n')
+    print(' Enter "1" if you would like  to try a new recipe.')
+    print(' Enter "2" if you would like to submit a rating for a recipe you have')
+    print(' already tried.\n')
 
 
 def rate_or_retrieve():
@@ -88,13 +89,13 @@ def rate_or_retrieve():
     They may either rate a recipe they have tried.
     Or try a new recipe.
     """
-    option = input("What'll it be?? 1 or 2:\n")
+    option = input(" Make your selection, 1 recipe or 2 rating:\n ")
     if option == '1':
         retrieve_recipe()
     elif option == '2':
         submit_rating()
     else:
-        print('Invalid choice. You may only choose 1 or 2\n')
+        print(' Invalid choice. You may only choose 1 or 2\n')
         return rate_or_retrieve()
 
 
@@ -103,8 +104,8 @@ def retrieve_recipe():
     Function to display recipe names once more,
     and allow the user to select a recipe to retrieve.
     """
-    print('\nSelect the recipe you would like to retrieve.')
-    print('Choose the recipe by the numberical value.')
+    print('\n Select the recipe you would like to retrieve.')
+    print(' Choose the recipe by the numberical value.')
 
     titles = recipe_titles()
     index = 1            
@@ -113,7 +114,7 @@ def retrieve_recipe():
         index += 1
     # print(recipe_titles())
 
-    selection = input('\nPlease select which recipe you would like to retrieve:\n')
+    selection = input('\n Please select which recipe you would like to retrieve:\n')
 
     if selection == '1':
         ingredients_list('chocolate quinoa')
@@ -122,10 +123,10 @@ def retrieve_recipe():
     elif selection == '3':
         ingredients_list('pumpkin')
     else:
-        print('Invalid choice. You may only choose one of the available options.\n')
+        print(' Invalid choice. You may only choose one of the available options.\n')
         return retrieve_recipe()
 
-    print('\nHappy baking!')
+    print('\n Happy baking!')
     quit_repeat()
 
 
@@ -145,11 +146,11 @@ def ingredients_list(recipe):
     unit = all_rows[2]
     instructions = all_rows[3]
 
-    print('\nIngredients list:\n')
+    print('\n Ingredients list:\n')
     for (ingredient, quantity, unit) in zip(ingredient, quantity, unit):
-        print(f'{ingredient} - {quantity}{unit}')
+        print(f' {ingredient} - {quantity}{unit}')
 
-    print('\nInstructions:\n')
+    print('\n Instructions:\n')
     for instruction in instructions:
         print(instruction)
 
@@ -159,10 +160,10 @@ def submit_rating():
     """
     Function to display recipe names once more, and allow the user to select a title to rate.
     """
-    print('\nSelect the recipe you would like to rate.')
-    print('Choose the recipe by the numberical value.')
-    print('Enter a rating between 1-5. Whole numbers ONLY.')
-    print('1 being the worst, 5 the best.\n')
+    print('\n Select the recipe you would like to rate.')
+    print(' Choose the recipe by the numberical value.')
+    print(' Enter a rating between 1-5. Whole numbers ONLY.')
+    print(' 1 being the worst, 5 the best.\n')
 
     titles = recipe_titles()
     index = 1            
@@ -171,7 +172,7 @@ def submit_rating():
         index += 1
     # print(recipe_titles())
 
-    selection = input('\nPlease select which recipe you would like to submit a rating for:\n')
+    selection = input('\n Please select which recipe you would like to submit a rating for:\n ')
     
     if selection == '1':
         input_rating = user_ratings()
@@ -186,10 +187,10 @@ def submit_rating():
         update_rating = SHEET.worksheet('ratings')
         update_rating.append_row(['', '', input_rating[0]])
     else:
-        print('Invalid choice. You may only choose one of the available options.\n')
+        print(' Invalid choice. You may only choose one of the available options.\n')
         return submit_rating()
 
-    print('\nThank you for your submission!')
+    print('\n Thank you for your submission!')
     quit_repeat()
 
 
@@ -202,16 +203,16 @@ def user_ratings():
     rating = []
     while True:
         try:
-            star_rating = int(input('Submit your rating: \n'))
+            star_rating = int(input(' Submit your rating: \n '))
             break
         except ValueError:
-            print('You must enter a number between 1 and 5')
+            print(' You must enter a number between 1 and 5')
             continue
     if star_rating <= 5:
         rating.append(star_rating)
         return rating
     else:
-        print('You must enter a number between 1 and 5')
+        print(' You must enter a number between 1 and 5')
         user_ratings()
     
     return rating
@@ -222,16 +223,16 @@ def quit_repeat():
     Function to allow the user to either quit the program,
     or restart it
     """
-    print('\nIf you would like to start again, press "R" to restart the application.')
-    print('\nOr press "Q" to quit the application.\n')
-    option = input("Enter your selection:\n").upper()
+    print('\n If you would like to start again, press "R" to restart the application.')
+    print('\n Or press "Q" to quit the application.\n')
+    option = input(" Enter your selection:\n ").upper()
     if option == 'R':
         main()
     elif option == 'Q':
-        sys.exit('\nThank you & Good bye!')
+        sys.exit('\n Thank you & Good bye!')
         # print('testing testing')
     else:
-        print('Invalid choice. You may only choose R or Q\n')
+        print(' Invalid choice. You may only choose R or Q\n')
         return quit_repeat()
 
 
@@ -247,7 +248,7 @@ def main():
 
     
     
-print("\nWelcome to Layer Cakes. Let's get started!\n")
+print("\n Welcome to Layer Cakes. Let's get started!\n")
 main()
 
 
