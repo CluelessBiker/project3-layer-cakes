@@ -1,7 +1,10 @@
+"""
+Import section
+"""
 import sys
 import gspread
 from google.oauth2.service_account import Credentials
-import itertools 
+# import itertools
 from termcolor import colored
 
 SCOPE = [
@@ -14,6 +17,34 @@ CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('layer-cakes')
+
+
+def title_and_rating(title, rating):
+    """
+    Return a list of Recipe titles & ratings together.
+    """
+    print(' Below you shall find a list of available recipes,')
+    print(' along with their user ratings.\n')
+
+    for title, rating in zip(title, rating):
+        print(colored((f' Recipe title: {title}\n User rating: {rating} / 5 stars\n'), 'cyan'))
+
+    print(' Enter "1" if you would like  to try a new recipe.')
+    print(' Enter "2" if you would like to submit a rating for a recipe you')
+    print(' have already tried.\n')
+
+
+def recipe_titles():
+    """
+    Function to return a lit of the available recipes titles to choose from.
+    """
+    recipes = SHEET.worksheet('ratings')
+    titles = []
+    for ind in range(1, 4):
+        title = recipes.col_values(ind)
+        titles.append(title[0])
+
+    return titles
 
 
 # This function is based on the 'Love Sandwiches' walk through.
@@ -52,34 +83,6 @@ def calculate_average_rating(data):
     return average_rating
 
 
-def recipe_titles():
-    """
-    Function to return a lit of the available recipes titles to choose from.
-    """
-    recipes = SHEET.worksheet('ratings')
-    titles = []
-    for ind in range(1, 4):
-        title = recipes.col_values(ind)
-        titles.append(title[0])
-
-    return titles
-
-
-def title_and_rating(title, rating):
-    """
-    Return a list of Recipe titles & ratings together.
-    """
-    print(' Below you shall find a list of available recipes,')
-    print(' along with their user ratings.\n')
-    
-    for title, rating in zip(title, rating):
-        print(colored((f' Recipe title: {title}\n User rating: {rating} / 5 stars\n'), 'cyan'))
-
-    print(' Enter "1" if you would like  to try a new recipe.')
-    print(' Enter "2" if you would like to submit a rating for a recipe you have')
-    print(' already tried.\n')
-
-
 def rate_or_retrieve():
     """
     Function to determine which option the user would like to proceed with.
@@ -105,8 +108,8 @@ def retrieve_recipe():
     print(' Choose the recipe by the numberical value.\n')
 
     titles = recipe_titles()
-    index = 1            
-    for title in titles:   
+    index = 1
+    for title in titles:
         print(colored((f' {index}. {title}'), 'cyan'))
         index += 1
 
@@ -133,9 +136,9 @@ def ingredients_list(recipe):
     ingredients = SHEET.worksheet(recipe)
 
     all_rows = []
-    for ind in range(1,5):
-        all = ingredients.col_values(ind)
-        all_rows.append(all[1:])
+    for ind in range(1, 5):
+        all_col = ingredients.col_values(ind)
+        all_rows.append(all_col[1:])
 
     ingredient = all_rows[0]
     quantity = all_rows[1]
@@ -161,13 +164,13 @@ def submit_rating():
     print(' 1 being the worst, 5 the best.\n')
 
     titles = recipe_titles()
-    index = 1            
-    for title in titles:   
+    index = 1
+    for title in titles:
         print(colored((f' {index}. {title}'), 'cyan'))
         index += 1
 
     selection = input('\n Please select which recipe you would like to submit a rating for:\n ')
-    
+
     if selection == '1':
         input_rating = user_ratings()
         update_rating = SHEET.worksheet('ratings')
@@ -208,7 +211,7 @@ def user_ratings():
     else:
         print(colored((' You must enter a number between 1 and 5'), 'red'))
         user_ratings()
-    
+
     return rating
 
 
@@ -239,9 +242,6 @@ def main():
     title_and_rating(recipe_name, average_rating)
     rate_or_retrieve()
 
-    
-    
+
 print(colored(("\n Welcome to Layer Cakes. Let's get started!\n"), 'magenta'))
 main()
-
-

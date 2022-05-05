@@ -2,7 +2,7 @@
 
 ![Site view across devices](assets/images/)
 
-The Layer Cakes site is live, the links can be found [HERE]()
+The Layer Cakes site is live, the links can be found [HERE](https://layer-cakes.herokuapp.com/)
 
 ## Table of Contents
 + [UX](#ux "UX")
@@ -117,7 +117,7 @@ The site was deployed to Heroku. The steps to deploy are as follows:
 - - git commit -m "Deploy to Heroku cia CLI"
 - - git push origin main
 - - git push heroku main
-- The live link can be found [HERE - Layer Cakes]()
+- The live link can be found [HERE - Layer Cakes](https://layer-cakes.herokuapp.com/)
 
 ## Credits
 
