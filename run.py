@@ -4,7 +4,6 @@ Import section
 import sys
 import gspread
 from google.oauth2.service_account import Credentials
-# import itertools
 from termcolor import colored
 
 SCOPE = [
@@ -27,7 +26,9 @@ def title_and_rating(title, rating):
     print(' along with their user ratings.\n')
 
     for title, rating in zip(title, rating):
-        print(colored((f' Recipe title: {title}\n User rating: {rating} / 5 stars\n'), 'cyan'))
+        print(colored(
+            (f' Recipe title: {title}\n User rating: {rating} / 5 stars\n'),
+            'cyan'))
 
     print(' Enter "1" if you would like  to try a new recipe.')
     print(' Enter "2" if you would like to submit a rating for a recipe you')
@@ -95,7 +96,8 @@ def rate_or_retrieve():
     elif option == '2':
         submit_rating()
     else:
-        print(colored((' Invalid choice. You may only choose 1 or 2\n'), 'red'))
+        print(colored(
+            (' Invalid choice. You may only choose 1 or 2\n'), 'red'))
         return rate_or_retrieve()
 
 
@@ -113,7 +115,7 @@ def retrieve_recipe():
         print(colored((f' {index}. {title}'), 'cyan'))
         index += 1
 
-    selection = input('\n Please select which recipe you would like to retrieve:\n ')
+    selection = input('\n Please select a recipe to retrieve:\n ')
 
     if selection == '1':
         ingredients_list('chocolate quinoa')
@@ -122,7 +124,9 @@ def retrieve_recipe():
     elif selection == '3':
         ingredients_list('pumpkin')
     else:
-        print(colored((' Invalid choice. You may only choose one of the available options.\n'), 'red'))
+        print(colored((' Invalid choice.'), 'red'))
+        print(colored(
+            (' You may only choose one of the listed options.\n'), 'red'))
         return retrieve_recipe()
 
     print(colored(('\n Happy baking!'), 'magenta'))
@@ -156,7 +160,8 @@ def ingredients_list(recipe):
 
 def submit_rating():
     """
-    Function to display recipe names once more, and allow the user to select a title to rate.
+    Function to display recipe names once more,
+    and allow the user to select a title to rate.
     """
     print('\n Select the recipe you would like to rate.')
     print(' Choose the recipe by the numberical value.')
@@ -169,7 +174,7 @@ def submit_rating():
         print(colored((f' {index}. {title}'), 'cyan'))
         index += 1
 
-    selection = input('\n Please select which recipe you would like to submit a rating for:\n ')
+    selection = input('\n Please select a recipe to submit a rating for:\n ')
     # input_rating = user_ratings()
     update_rating = SHEET.worksheet('ratings')
     if selection == '1':
@@ -185,7 +190,9 @@ def submit_rating():
         # update_rating = SHEET.worksheet('ratings')
         update_rating.append_row(['', '', input_rating[0]])
     else:
-        print(colored((' Invalid choice. You may only choose one of the available options.\n'), 'red'))
+        print(colored((' Invalid choice.'), 'red'))
+        print(colored(
+            (' You may only choose one of the listed options.\n'), 'red'))
         return submit_rating()
 
     print('\n Thank you for your submission!')
@@ -221,15 +228,15 @@ def quit_repeat():
     Function to allow the user to either quit the program,
     or restart it
     """
-    print('\n If you would like to start again, press "R" to restart the application.')
-    print('\n Or press "Q" to quit the application.\n')
+    print('\n Enter: "R" to restart the application.')
+    print('\n Enter: "Q" to quit the application.\n')
     option = input(" Enter your selection:\n ").upper()
     if option == 'R':
         main()
     elif option == 'Q':
         sys.exit('\n Thank you & Good bye!')
     else:
-        print(colored((' Invalid choice. You may only choose R or Q\n'), 'red'))
+        print(colored((' Invalid choice. Enter: R or Q only.\n'), 'red'))
         return quit_repeat()
 
 
