@@ -2,7 +2,7 @@
 
 Layer Cakes is an app that allows the users to interact with baking recipes. They may retrieve new recipes to try, or they may submit a rating for a recipe already tried, to provide feedback for the next user.
 
-![Site view across devices](assets/images/)
+![Site view across devices](assets/images/readme-amiresponsive.png)
 
 The Layer Cakes site is live, the links can be found [HERE](https://layer-cakes.herokuapp.com/)
 
@@ -40,7 +40,7 @@ To provide easy access to recipes and their reviews.
 Everyone with a love of being in the kitchen and testing their baking abilities.
 
 ### Communication:
-The app expresses its intent through the print statements generated, prompting the user to walk through the options available & make their selections. Various statements also print in a variety of colour to help break up the monotiny of the white text, making it easier to read.
+The app expresses its intent through the print statements generated, prompting the user to walk through the options available & make their selections. Various statements also print in a variety of colour to help break up the monotony of the white text, making it easier to read.
 
 ### Current User Goals:
 To keep the user engaged with the app by allowing them a variety of choices, as well as the ability to restart the application for ease of use if they wish to explore an alternative feature.
@@ -67,7 +67,7 @@ To expand the app and allow users to submit their own recipes. As well as to cha
 ![Rate or Retrieve](assets/images/readme-rate.png)
 
 #### Flavour Selection:
-![FLavour Selection](assets/images/readme-recipe-selection.png)
+![Flavour Selection](assets/images/readme-recipe-selection.png)
 
 #### Recipe:
 ![Ingredients](assets/images/readme-ingredients.png)
@@ -81,15 +81,15 @@ To expand the app and allow users to submit their own recipes. As well as to cha
 
 ### Features Left to Implement
 - Allow users to submit their own recipes.
-- Create a feature to enable a user to increase the recipe size if they wish to make a milti-layered cake, and multiply the recipe based on the number of layers a user has selected.
-- Add an additional feature to then allow the user to also increase the size of the cake tin they are using (e.g. 20cm, 25cm, 30cm etc), and adjust the ingredients list accordingly to accomodate for the increase in batter needed.
+- Create a feature to enable a user to increase the recipe size if they wish to make a multi-layered cake, and multiply the recipe based on the number of layers a user has selected.
+- Add an additional feature to then allow the user to also increase the size of the cake tin they are using (e.g. 20cm, 25cm, 30cm etc), and adjust the ingredients list accordingly to accommodate for the increase in batter needed.
 - Add additional recipes to choose from.
 - A comments section, that would allow the user to expand on the reason for which they chose their previously inputted rating.
 
 ## Testing
-In trying to create a function to allow the user to select from one of the recipe titles to rate, I was unable to pass in a parameter in order to cycle through the list already generated in a previous function. Upon removing the parameter, I saw the print statement was being logged to the console twice. I then realised that this was because the function was being called twice. Once through the user input funtion prompting the user to make a choice, and the second time from the main function. By removing the "submit_rating" function from the main function, I resolved my error message.
+In trying to create a function to allow the user to select from one of the recipe titles to rate, I was unable to pass in a parameter in order to cycle through the list already generated in a previous function. Upon removing the parameter, I saw the print statement was being logged to the console twice. I then realised that this was because the function was being called twice. Once through the user input function prompting the user to make a choice, and the second time from the main function. By removing the "submit_rating" function from the main function, I resolved my error message.
 
-A new issue arose when it came to assing those ratings into the appropriate column for the recipe. As I could not discover the method to append a new cell to the end of a single column, I was instead guided by my friend Nick to stead creat an array, so that I could just append an entirely new row to all the columns, inserting empty strings into the columns that did not need to be updated. 
+A new issue arose when it came to assign those ratings into the appropriate column for the recipe. As I could not discover the method to append a new cell to the end of a single column, I was instead guided by my friend Nick to stead create an array, so that I could just append an entirely new row to all the columns, inserting empty strings into the columns that did not need to be updated. 
 
 This presented two new issues. One, it affected my ratings calculations. This issue was resolved when Nick showed me how to change the calculations so that empty cells were not factored in. 
 
@@ -160,4 +160,4 @@ The information on how to iterate through three lists simultaneously came from (
 Instructions on adding (Termcolor)[https://pypi.org/project/termcolor/] came from (StackOverflow)[https://stackoverflow.com/questions/51530437/no-module-named-termcolor].
 
 ### Media
-Recipes used for the app were writen by me.
+Recipes used for the app were written by me.
