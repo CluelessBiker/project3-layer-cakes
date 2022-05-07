@@ -1,5 +1,7 @@
 # Layer Cakes
 
+Layer Cakes is an app that allows the users to interact with baking recipes. They may retrieve new recipes to try, or they may submit a rating for a recipe already tried, to provide feedback for the next user.
+
 ![Site view across devices](assets/images/)
 
 The Layer Cakes site is live, the links can be found [HERE](https://layer-cakes.herokuapp.com/)
@@ -32,18 +34,25 @@ The Layer Cakes site is live, the links can be found [HERE](https://layer-cakes.
 ## UX
 
 ### Site Purpose:
+To allow users to interact with the recipes available on the recipe app. Users may obtain recipes they wish to bake, or submit ratings for recipes they have already tried.
 
 ### Site Goal: 
+To provide easy access to recipes and their reviews.
 
 ### Audience:
+Everyone with a love of being in the kitchen and testing their baking abilities.
 
 ### Communication:
+The app expresses its intent through the print statements generated, prompting the user to walk through the options available & make their selections. Various statements also print in a variety of colour to help break up the monotiny of the white text, making it easier to read.
 
 ### Current User Goals:
+To keep the user engaged with the app by allowing them a variety of choices, as well as the ability to restart the application for ease of use if they wish to explore an alternative feature.
 
 ### New User Goals:
+To pick new recipes to try, based on the user ratings provided by the previous user.
 
 ### Future Goals:
+To expand the app and allow users to submit their own recipes. As well as to change the way the recipes are generated, allowing the user to determine the cake size they wish to make, and. how many layers they wish to make for it. A comment section that would allow the user to elaborate on their ratings would also help users to interact with the app on a more personal level.
 
 ## Design
 
@@ -60,16 +69,24 @@ The Layer Cakes site is live, the links can be found [HERE](https://layer-cakes.
 #### Flavour Selection:
 ![](assets/images/)
 
-#### Diameter Selection:
-![](assets/images/)
-
-#### No. of Layers Selection:
+#### Retrieve or Rate a Recipe:
 ![](assets/images/)
 
 #### Recipe:
 ![](assets/images/)
 
+#### Submit Rating:
+![](assets/images/)
+
+#### Restart or Quit app:
+![](assets/images/)
+
 ### Features Left to Implement
+- Allow users to submit their own recipes.
+- Create a feature to enable a user to increase the recipe size if they wish to make a milti-layered cake, and multiply the recipe based on the number of layers a user has selected.
+- Add an additional feature to then allow the user to also increase the size of the cake tin they are using (e.g. 20cm, 25cm, 30cm etc), and adjust the ingredients list accordingly to accomodate for the increase in batter needed.
+- Add additional recipes to choose from.
+- A comments section, that would allow the user to expand on the reason for which they chose their previously inputted rating.
 
 ## Testing
 In trying to create a function to allow the user to select from one of the recipe titles to rate, I was unable to pass in a parameter in order to cycle through the list already generated in a previous function. Upon removing the parameter, I saw the print statement was being logged to the console twice. I then realised that this was because the function was being called twice. Once through the user input funtion prompting the user to make a choice, and the second time from the main function. By removing the "submit_rating" function from the main function, I resolved my error message.
@@ -93,7 +110,7 @@ And issue two arose when I tried to append the new array to a new row, an error 
 ### Frameworks, Libraries & Programs Used
 - GitPod - to create my html files & styling sheet before pushing the project to Github.
 - GitHub - to store my repository for submission.
-- Lucid - to create the mock up prior to beginning
+- Lucid - to create the mock up prior to beginning the project.
 - Heroku - to deploy the live version of the terminal
 
 ## Deployment
@@ -144,7 +161,5 @@ The information on how to iterate through three lists simultaneously came from (
 
 Instructions on adding (Termcolor)[https://pypi.org/project/termcolor/] came from (StackOverflow)[https://stackoverflow.com/questions/51530437/no-module-named-termcolor].
 
-(this section is only relevant if I make it more complicated.)
-(Finxter)[https://blog.finxter.com/how-to-convert-a-string-list-to-an-integer-list-in-python/] supplied the information on how to convert a list of strings into integers or floats, and (StackOverflow)[https://stackoverflow.com/questions/35166633/how-do-i-multiply-each-element-in-a-list-by-a-number] provided instruction on how to then manipulate each float with an equation.
-
 ### Media
+Recipes used for the app were writen by me.
