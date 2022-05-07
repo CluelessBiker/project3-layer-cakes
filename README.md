@@ -98,6 +98,7 @@ And issue two arose when I tried to append the new array to a new row, an error 
 
 ### Validator Testing
 - The code has also been tested by using [PEP8 Online](http://pep8online.com/).
+![PEP8 Validation](assets/images/readme-pep8.png)
 
 ### Unfixed Bugs
 
@@ -155,9 +156,9 @@ The code for how to exit the application came from [Geeks for Geeks](https://www
 
 [Pretty Printed](https://www.youtube.com/watch?v=bu5wXjz2KvU) provided a great tutorial on manipulating google spreadsheets.
 
-The information on how to iterate through three lists simultaneously came from (Geeks for Geeks)[https://www.geeksforgeeks.org/python-iterate-multiple-lists-simultaneously/].
+The information on how to iterate through three lists simultaneously came from [Geeks for Geeks](https://www.geeksforgeeks.org/python-iterate-multiple-lists-simultaneously/).
 
-Instructions on adding (Termcolor)[https://pypi.org/project/termcolor/] came from (StackOverflow)[https://stackoverflow.com/questions/51530437/no-module-named-termcolor].
+Instructions on adding (Termcolor)[https://pypi.org/project/termcolor/] came from [StackOverflow](https://stackoverflow.com/questions/51530437/no-module-named-termcolor).
 
 ### Media
 Recipes used for the app were written by me.
