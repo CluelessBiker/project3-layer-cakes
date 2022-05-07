@@ -15,9 +15,6 @@ The Layer Cakes site is live, the links can be found [HERE](https://layer-cakes.
   + [Current User Goals](#current-user-goals "Current User Goals")
   + [New User Goals](#new-user-goals "New User Goals")
 + [Design](#design "Design")
-  + [Colour Scheme](#colour-scheme "Colour Scheme")
-  + [Typography](#typography "Typography")
-  + [Imagery](#imagery "Imagery")
 + [Features](#features "Features")
   + [Existing Features](#existing-features "Existing Features")
 + [Testing](#testing "Testing")
@@ -57,29 +54,30 @@ To expand the app and allow users to submit their own recipes. As well as to cha
 ## Design
 
 ### Wireframes:
-![App functionality Wireframe](assets/images/)
+![App functionality Wireframe](assets/images/readme-wireframe.png)
 
 ## Features
 
 ### Existing Features:
 
 #### Landing Page:
-![](assets/images/)
-
-#### Flavour Selection:
-![](assets/images/)
+![Landing Page](assets/images/readme-landingpage.png)
 
 #### Retrieve or Rate a Recipe:
-![](assets/images/)
+![Rate or Retrieve](assets/images/readme-rate.png)
+
+#### Flavour Selection:
+![FLavour Selection](assets/images/readme-recipe-selection.png)
 
 #### Recipe:
-![](assets/images/)
+![Ingredients](assets/images/readme-ingredients.png)
+![Instructions](assets/images/readme-instructions.png)
 
 #### Submit Rating:
-![](assets/images/)
+![Submit Rating](assets/images/readme-rate-recipe.png)
 
 #### Restart or Quit app:
-![](assets/images/)
+![Restart or Quit](assets/images/readme-quit-restart.png)
 
 ### Features Left to Implement
 - Allow users to submit their own recipes.
