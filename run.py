@@ -108,7 +108,7 @@ def rate_or_retrieve():
         submit_rating()
     else:
         print(colored(
-            (' Invalid choice. You may only choose 1 or 2\n'), 'red'))
+            ('\n Invalid choice. You may only choose 1 or 2\n'), 'red'))
         return rate_or_retrieve()
 
 
@@ -131,7 +131,7 @@ def retrieve_recipe():
     elif selection == '3':
         ingredients_list('pumpkin')
     else:
-        print(colored((' Invalid choice.'), 'red'))
+        print(colored(('\n Invalid choice.'), 'red'))
         print(colored(
             (' You may only choose one of the listed options.\n'), 'red'))
         return retrieve_recipe()
@@ -178,22 +178,19 @@ def submit_rating():
     index_titles()
 
     selection = input('\n Please select a recipe to submit a rating for:\n ')
-    # input_rating = user_ratings()
     update_rating = SHEET.worksheet('ratings')
+
     if selection == '1':
         input_rating = user_ratings()
-        # update_rating = SHEET.worksheet('ratings')
         update_rating.append_row([input_rating[0], '', ''])
     elif selection == '2':
         input_rating = user_ratings()
-        # update_rating = SHEET.worksheet('ratings')
         update_rating.append_row(['', input_rating[0], ''])
     elif selection == '3':
         input_rating = user_ratings()
-        # update_rating = SHEET.worksheet('ratings')
         update_rating.append_row(['', '', input_rating[0]])
     else:
-        print(colored((' Invalid choice.'), 'red'))
+        print(colored(('\n Invalid choice.'), 'red'))
         print(colored(
             (' You may only choose one of the listed options.\n'), 'red'))
         return submit_rating()
@@ -214,13 +211,14 @@ def user_ratings():
             star_rating = int(input(' Submit your rating: \n '))
             break
         except ValueError:
-            print(colored((' You must enter a number between 1 and 5'), 'red'))
+            print(colored(
+                (' \nYou must enter a number between 1 and 5'), 'red'))
             continue
     if star_rating <= 5:
         rating.append(star_rating)
         return rating
     else:
-        print(colored((' You must enter a number between 1 and 5'), 'red'))
+        print(colored((' \nYou must enter a number between 1 and 5'), 'red'))
         user_ratings()
 
     return rating
@@ -239,7 +237,7 @@ def quit_repeat():
     elif option == 'Q':
         sys.exit('\n Thank you & Good bye!')
     else:
-        print(colored((' Invalid choice. Enter: R or Q only.\n'), 'red'))
+        print(colored((' \nInvalid choice. Enter: R or Q only.\n'), 'red'))
         return quit_repeat()
 
 
@@ -254,6 +252,7 @@ def main():
     rate_or_retrieve()
 
 
-print(colored(("\n Welcome to Layer Cakes. Let's get started!\n"), 'magenta'))
+print(colored(("\n Welcome to Layer Cakes. Let's get started!"), 'yellow'))
+print(colored((" Welcome to Layer Cakes. Let's get started!"), 'cyan'))
+print(colored((" Welcome to Layer Cakes. Let's get started!\n"), 'magenta'))
 main()
-

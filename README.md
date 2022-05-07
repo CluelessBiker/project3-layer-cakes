@@ -144,5 +144,7 @@ The information on how to iterate through three lists simultaneously came from (
 
 Instructions on adding (Termcolor)[https://pypi.org/project/termcolor/] came from (StackOverflow)[https://stackoverflow.com/questions/51530437/no-module-named-termcolor].
 
+(this section is only relevant if I make it more complicated.)
+(Finxter)[https://blog.finxter.com/how-to-convert-a-string-list-to-an-integer-list-in-python/] supplied the information on how to convert a list of strings into integers or floats, and (StackOverflow)[https://stackoverflow.com/questions/35166633/how-do-i-multiply-each-element-in-a-list-by-a-number] provided instruction on how to then manipulate each float with an equation.
 
 ### Media
