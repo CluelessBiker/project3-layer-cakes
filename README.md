@@ -1,6 +1,6 @@
 # Layer Cakes
 
-Layer Cakes is an app that allows the users to interact with baking recipes. They may retrieve new recipes to try, or they may submit a rating for a recipe already tried, to provide feedback for the next user.
+Layer Cakes is an app that allows the users to interact with baking recipes. Through a series of choices, they are guided through the program allowing them to either begin with choosing a recipe to bake, or to submit a rating for a recipe they have previously tried. Prior to making a decision, the app displays the available recipes, along with their average user ratings to date to provide the user with the full information. When the user decides they wish to generate a recipe, the list of available recipes is presented, and upon selection of which they would like to make, the full recipe and ingredients list is then generated. They are then asked if they would like to run the app again, or if they wish to quit the application. Upon restaerting the app, they may then take the path previously untaken, and enter in their own rating submission for one of the available recipes.
 
 ![Site view across devices](assets/images/readme-amiresponsive.png)
 
@@ -87,17 +87,17 @@ To expand the app and allow users to submit their own recipes. As well as to cha
 - A comments section, that would allow the user to expand on the reason for which they chose their previously inputted rating.
 
 ## Testing
-In trying to create a function to allow the user to select from one of the recipe titles to rate, I was unable to pass in a parameter in order to cycle through the list already generated in a previous function. Upon removing the parameter, I saw the print statement was being logged to the console twice. I then realised that this was because the function was being called twice. Once through the user input function prompting the user to make a choice, and the second time from the main function. By removing the "submit_rating" function from the main function, I resolved my error message.
+In trying to create a function to allow the user to select from one of the recipe titles to rate, I was unable to pass in an argument in order to cycle through the list already generated in a previous function. Upon removing the argument, I saw the print statement was being logged to the console twice. I then realised that this was because the function was being called twice. Once through the user input function prompting the user to make a choice, and the second time from the main function. By removing the "submit_rating" function from the main function, I resolved my error message.
 
-A new issue arose when it came to assign those ratings into the appropriate column for the recipe. As I could not discover the method to append a new cell to the end of a single column, I was instead guided by my friend Nick to stead create an array, so that I could just append an entirely new row to all the columns, inserting empty strings into the columns that did not need to be updated. 
+A new issue arose when it came to assign those ratings into the appropriate column for the recipe. As I could not discover the method to append a new cell to the end of a single column, I was instead guided by my friend Nick to create a list, so that I could just append an entirely new row to all the columns, inserting empty strings into the cells that did not need to be updated. 
 
 This presented two new issues. One, it affected my ratings calculations. This issue was resolved when Nick showed me how to change the calculations so that empty cells were not factored in. 
 
-And issue two arose when I tried to append the new array to a new row, an error message kept arising. Upon further inspection, I realised the error as that the inputed ratings were being generated into an empty array themselves, and thus I had an array, nested within an array, which led to the errors I was seeing. I resolved this by calling upon a single item within the array.
+And issue two arose when I tried to append the new array to a new row, an error message kept arising. Upon further inspection, I realised the error was that the inputed ratings were being generated into an empty array themselves, and thus I had a list, nested within a list, which led to the errors I was seeing. I resolved this by calling upon the indexed value of the item within the list.
 
 
 ### Validator Testing
-- The code has also been tested by using [PEP8 Online](http://pep8online.com/).
+- The code has been tested by using [PEP8 Online](http://pep8online.com/).
 ![PEP8 Validation](assets/images/readme-pep8.png)
 
 ### Unfixed Bugs
@@ -142,15 +142,15 @@ Support was provided by my fellow student & friend [Mats Simonsson](https://gith
 
 Also a huge thank you to my mentor, Martina Terlevic who kept me calm when I was on the verge of panic. As well as taught me how to break my thinking down into bite-sized chunks that were easier to manage, instead of trying to figure it all out in one go.
 
-The start of the project is based on the 'Love Sandwiches' walk through, and the three functions to obtain the column data & generate an average have been used in this project. The have been marked accordingly within the run file.
+The start of the project is based on the 'Love Sandwiches' walk through, and the three functions to obtain the column data & generate an average have been used in this project. They have been marked accordingly within the run.py file.
 
 [StackOverflow](https://stackoverflow.com/questions/1663807/how-to-iterate-through-two-lists-in-parallel) reminded me how to iterate through two lists, and this was used to generate the recipe titles & user ratings together.
 
 [StackOverflow](https://stackoverflow.com/questions/522563/accessing-the-index-in-for-loops) provided the reminder for how to index my 'for loop'.
 
-[Mats Simonsson](https://github.com/Pelikantapeten) Helped me to create my Try/Except statement, and walked me through their own code when I was stuck.
+[Mats Simonsson](https://github.com/Pelikantapeten) helped me to create my Try/Except statement, and walked me through their own code when I was stuck.
 
-Nick Ludlam, my friend, assisted me by re-writing the code for the averages function, as it needed to account for empty cells being inserted in the submit rating function. They have been credited accordingly above the function as well.
+Nick Ludlam, my friend, assisted me in re-writing the code for the averages function, as it needed to account for empty cells being inserted into the submit rating function. They have been credited accordingly above the function as well.
 
 The code for how to exit the application came from [Geeks for Geeks](https://www.geeksforgeeks.org/python-exit-commands-quit-exit-sys-exit-and-os-_exit/).
 
