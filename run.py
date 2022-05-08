@@ -35,6 +35,7 @@ def title_and_rating(title, rating):
     print(' have already tried.\n')
 
 
+# This function is based on the 'Love Sandwiches' walk through.
 def recipe_titles():
     """
     Function to return a lit of the available recipes titles to choose from.
