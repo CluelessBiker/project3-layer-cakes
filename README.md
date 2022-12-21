@@ -4,7 +4,8 @@ Layer Cakes is an app that allows the users to interact with baking recipes. Thr
 
 ![Site view across devices](assets/images/readme-amiresponsive.png)
 
-The Layer Cakes site is live, the links can be found [HERE](https://layer-cakes.herokuapp.com/)
+The Layer Cakes site is live, the links can be found [HERE](https://project3-layer-cakes.onrender.com/)
+
 
 ## Table of Contents
 + [UX](#ux "UX")
@@ -134,6 +135,7 @@ The site was deployed to Heroku. The steps to deploy are as follows:
 - - git push origin main
 - - git push heroku main
 - The live link can be found [HERE - Layer Cakes](https://layer-cakes.herokuapp.com/)
+- * Site has been depolyed to [Render](https://render.com/), following these [instructions](https://code-institute-students.github.io/deployment-docs/10-pp3/).
 
 ## Credits
 
